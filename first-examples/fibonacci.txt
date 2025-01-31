@@ -1,0 +1,15 @@
+int a = 1;
+int b = 1;
+int i = 0;
+Console.Write("Gösterilecek Fibonacci Adım Sayısını Girin: ");
+int sayi = int.Parse(Console.ReadLine());
+
+while (sayi > i)
+{
+
+    Console.Write(a);
+    int adim = a + b;
+    a = b;
+    b = adim;
+    i++;
+}
