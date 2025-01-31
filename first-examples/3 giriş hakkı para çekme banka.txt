@@ -1,0 +1,87 @@
+int bakiye = 10000;
+            string sifre = "1234";
+            string girilen;
+            int hak = 3;
+
+            while(hak>0){
+                Console.WriteLine("Şifrenizi Girin: ");
+                girilen = Console.ReadLine();
+                
+                if (girilen == sifre)
+                {
+                    Console.WriteLine("Giriş başarılı!");
+                    break;
+                }else{
+                    Console.WriteLine("Hatalı kullanıcı adı veya şifre. Kalan giriş hakkı: " + (hak - 1));
+                     
+
+                    if (hak - 1 == 0)
+                    {
+                        Console.WriteLine("Giriş hakkınız bitti. Programdan çıkılıyor.");
+                        return;
+                    }
+                      hak--;
+
+                    
+                }
+                
+            }
+
+            bool cikisYapildi = false;
+            
+            while(!cikisYapildi){
+                Console.WriteLine("1. Para Çekme");
+                Console.WriteLine("2. Para Gönderme");
+                Console.WriteLine("3. Bakiye Kontrol");
+                Console.WriteLine("4. Çıkış");
+                Console.Write("Yapmak istediğiniz işlemi seçin: ");
+                string secim = Console.ReadLine();
+
+                switch (secim)
+                {
+                    case "1":
+                        Console.Write("Çekmek istediğiniz tutarı girin: ");
+                        int cekilecektutar = int.Parse(Console.ReadLine());
+
+                        if (cekilecektutar <= bakiye)
+                        {
+                            bakiye -= cekilecektutar;
+                            Console.WriteLine($"Başarıyla {cekilecektutar} TL çekildi. Güncel bakiye: {bakiye} TL");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Yetersiz bakiye.");
+
+                        }
+                        break;
+
+                    case "2":
+                        Console.Write("Göndermek istediğiniz tutarı girin: ");
+                        int yuklenecektutar = int.Parse(Console.ReadLine());
+
+                        if (yuklenecektutar <= bakiye)
+                        {
+                            bakiye += yuklenecektutar;
+                            Console.WriteLine($"Başarıyla {yuklenecektutar} TL gönderildi. Güncel bakiye: {bakiye} TL");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Yetersiz bakiye.");
+
+                        }
+                        break;
+
+                    case "3":
+                        Console.WriteLine($"Güncel bakiyeniz: {bakiye} TL");
+                        break;
+
+                    case "4":
+                        cikisYapildi = true;
+                        Console.WriteLine("Çıkış yapılıyor. Hoşçakalın!");
+                        break;
+
+                    default:
+                        Console.WriteLine("Geçersiz seçenek. Lütfen tekrar deneyin.");
+                        break;
+                }        
+            }
