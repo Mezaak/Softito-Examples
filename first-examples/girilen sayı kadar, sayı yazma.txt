@@ -1,0 +1,17 @@
+   int i = 1;
+   int j = 0;
+   int sayi;
+   Console.WriteLine("bir sayi girin");
+   sayi = int.Parse(Console.ReadLine());
+
+   while (i <= sayi) 
+   {
+       j = sayi;
+       while (j >= i) 
+       {
+           j--;
+           Console.Write(i);
+           
+       }   
+           i++;
+   }
