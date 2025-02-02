@@ -1,0 +1,44 @@
+ int bakiye = 900;
+ x:
+ Console.WriteLine("ATM ye hoşgeldiniz.");
+ Console.WriteLine("1.Bakiye sorgula");
+ Console.WriteLine("2.Para yatır");
+ Console.WriteLine("3.Para çek");
+ Console.WriteLine("4.Çıkış yap");
+ Console.WriteLine("Lütfen yapmak istediğiniz işlemi seçiniz.");
+
+ int islem = Convert.ToInt32(Console.ReadLine());
+
+ switch (islem)
+ {
+     case 1: 
+         Console.WriteLine($"bakiyeniz: {bakiye} TL");
+         goto x;
+     case 2:
+         Console.WriteLine("Yatırmak istediğniz para miktarını girin");
+         int miktar = Convert.ToInt32(Console.ReadLine());
+         bakiye += miktar;
+         Console.WriteLine($"{miktar} TL Tutarındaki paranız başarıyla yatırılmıştır. \n Yeni bakiyeniz: {bakiye} TL");
+         goto x;
+     case 3:
+         Console.WriteLine("Çekmek istediğiniz para miktarını giriniz");
+         int cekmemiktar = Convert.ToInt32(Console.ReadLine());
+         if( cekmemiktar > bakiye)
+         {
+             Console.WriteLine($"Bakiyeniz {bakiye} .Bakiyenizi aşan değerlerde para çekemezsiniz");
+             goto x;
+         }
+         else
+         {
+             bakiye -= cekmemiktar;
+             Console.WriteLine($"{cekmemiktar} TL Tutarındaki para çekme işleminiz tamamlanmıştır \n Yeni bakiyeniz {bakiye} TL ");
+             goto x;
+         }
+         break;
+     case 4:
+         Console.WriteLine("Başarıyla çıkış yaptınız");
+         goto x;
+     
+
+
+ }
