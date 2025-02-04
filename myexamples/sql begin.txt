@@ -1,0 +1,24 @@
+--select e.EmployeeID,LEFT(e.FirstName,1)+'.'+e.LastName'AdSoyad' from Employees e 
+--select p.ProductID,p.ProductName,p.UnitsInStock,p.UnitPrice,p.UnitPrice*1.18  'Kdvli fiyat' from Products p
+
+--select LEFT(e.FirstName,1)+'.'+e.LastName 'AdSoyad', DATEDIFF(year,e.BirthDate,GETDATE())  'Yaş' from Employees e
+
+--select p.ProductID,p.ProductName,p.UnitsInStock,p.UnitPrice from Products p where p.UnitPrice >30 and p.UnitPrice < 60
+
+--select LEFT(e.FirstName,1)+'.'+e.LastName 'Name-Surname',e.Country from Employees e where e.City='London' 
+
+
+--select p.ProductID,p.ProductName,p.CategoryID from Products p where p.CategoryID != 5
+
+--01.01.1993 tarihinden sonra giren
+--select e.FirstName,e.LastName,e.HireDate from Employees e where e.HireDate > '01.01.1993'
+
+-- YAŞI 50 YE BÜYÜK VE EŞİT VE İNGİLTERE DE OTURMAYAN
+--select LEFT(e.FirstName,1)+'.'+e.LastName 'AdSoyad', DATEDIFF(YEAR,E.BirthDate ,GETDATE()) 'Yaş',e.Country from Employees e where e.Country != 'UK' and DATEDIFF(YEAR,E.BirthDate ,GETDATE()) >=50
+
+
+-- 1997 (dahil) yılından sonra alınmış kargo ücreti 20 den büyük ve Fransaya gönderilmemiş siparişlerin , id si, sipariş tarihi, teslimat tarihi
+-- ve kargo ücretlerini raporlayınız.
+
+
+--select o.OrderID,o.OrderDate,o.ShippedDate,o.Freight,o.ShipCountry from Orders o where YEAR(OrderDate)>=1997 and o.Freight >20 and o.ShipCountry !='France'
