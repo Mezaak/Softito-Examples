@@ -1,2 +1,2 @@
 # Softito-Examples
-C# .Net and SQL, MSSQL Example Question Solutions
+C# .Net and SQL, MSSQL Example Questions Solutions
